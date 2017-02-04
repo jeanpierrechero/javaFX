@@ -66,15 +66,11 @@ public class FXMLDocumentController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/javafxapplication1/Pantalla2.fxml"));
             AnchorPane internalWindow = (AnchorPane) loader.load();
-            
-            Stage internalWindowStage = new Stage();
-            internalWindowStage.setTitle("Ventana Interna");
-            internalWindowStage.initModality(Modality.NONE);
-            internalWindowStage.initOwner(main.primaryStage);
+         
             
             Scene scene = new Scene(internalWindow);
-            internalWindowStage.setScene(scene);
-            internalWindowStage.show();
+            main.primaryStage.setScene(scene);
+            main.primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -25,7 +25,7 @@ public class JavaFXApplication1 extends Application {
     public void start(Stage stage) throws Exception {
         // Load root layout from fxml file.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLDocument.fxml"));
+        loader.setLocation(getClass().getResource("/javafxapplication1/FXMLDocument.fxml"));
         rootLayout = (AnchorPane) loader.load();
 
         // Give the controller access to the main app.
