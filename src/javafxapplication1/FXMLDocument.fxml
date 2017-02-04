@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+   <children>
+      <SplitPane dividerPositions="0.407871198568873" layoutX="-8.0" layoutY="30.0" prefHeight="463.0" prefWidth="561.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="234.0">
+               <children>
+                  <Label layoutX="9.0" layoutY="106.0" prefHeight="32.0" prefWidth="54.0" text="nombre">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="172.0" text="Apellido">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="222.0" text="DNI">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txt_nombre" layoutX="63.0" layoutY="111.0" />
+                  <TextField fx:id="txt_apellido" layoutX="63.0" layoutY="170.0" />
+                  <TextField fx:id="txt_dni" layoutX="63.0" layoutY="220.0" />
+                  <Button layoutX="82.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleButtonAction" text="grabar" />
+                  <Button layoutX="148.0" layoutY="397.0" mnemonicParsing="false" onAction="#nuevoFormulario" text="nuevo" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="0.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label fx:id="label1" layoutX="27.0" layoutY="56.0" prefHeight="22.0" prefWidth="184.0" />
+                  <Label fx:id="label2" layoutX="20.0" layoutY="102.0" prefHeight="32.0" prefWidth="203.0" />
+                  <Label fx:id="label3" layoutX="20.0" layoutY="167.0" prefHeight="32.0" prefWidth="203.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>

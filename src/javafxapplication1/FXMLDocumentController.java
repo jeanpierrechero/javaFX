@@ -5,12 +5,22 @@
  */
 package javafxapplication1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
@@ -18,18 +28,65 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
+    
     @FXML
-    private Label label;
+    private Label label1,label2,label3;
+    
+    @FXML
+    private TextField txt_nombre; 
+    
+    @FXML
+    private TextField txt_apellido; 
+    
+    @FXML
+    private TextField txt_dni; 
+    
+    @FXML
+    private TextArea txt_area; 
+    
+    private JavaFXApplication1 main;
+    
+    
+    
+    @FXML
+    private void nuevoFormulario(ActionEvent event) {
+        txt_nombre.setText("");
+        txt_apellido.setText("");
+        txt_dni.setText("");
+    }
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        
+        try {
+            label1.setText(txt_nombre.getText());
+            label2.setText(txt_apellido.getText());
+            label3.setText(txt_dni.getText());
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafxapplication1/Pantalla2.fxml"));
+            AnchorPane internalWindow = (AnchorPane) loader.load();
+            
+            Stage internalWindowStage = new Stage();
+            internalWindowStage.setTitle("Ventana Interna");
+            internalWindowStage.initModality(Modality.NONE);
+            internalWindowStage.initOwner(main.primaryStage);
+            
+            Scene scene = new Scene(internalWindow);
+            internalWindowStage.setScene(scene);
+            internalWindowStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    void setMainApp(JavaFXApplication1 main) {
+        this.main = main;
+    }
     
 }
